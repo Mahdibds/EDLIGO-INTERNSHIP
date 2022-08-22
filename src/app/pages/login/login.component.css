@@ -1,0 +1,18 @@
+.show-pwd-icon {
+    cursor: pointer;
+  }
+  
+  .text-registro {
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  .progress-div {
+    height: auto;
+    width: auto;
+  }
+  
+  *, ::after, ::before {
+    box-sizing: content-box !important;
+  }
+  
