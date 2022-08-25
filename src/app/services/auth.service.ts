@@ -61,30 +61,30 @@ export class AuthService {
         return false;
     }
 
-    darInfousuario():Observable<any>{
+    Userinfo():Observable<any>{
         let token = localStorage.getItem("TOKEN");
         let root = [this.ApiUrl, 'dar-info-user'].join('/');
         return this.http.post(root, {"token":token});
     }
 
-    cerrarSesion(){
+    Signoff(){
         localStorage.removeItem("PROFILE");
         localStorage.removeItem("TOKEN");
     }
 
-    darPerfiles():Observable<any>{
+    getprofiles():Observable<any>{
         let root = [this.ApiUrl, 'profile'].join('/');
         return this.http.get(root);
     }
 
-    actualizarUsuario (data, id_user):Observable<any>{
+    Updateuser (data, id_user):Observable<any>{
         let root = [this.ApiUrl, 'user', id_user].join('/');
         return this.http.put(root, {"id_profile": data.profile,"id_completed":data.completed});
     }
 
-    actualizarContra ( password ): Observable<any>{
-        let ruta = [this.ApiUrl, 'refresh'].join("/");
-        return this.http.post(ruta, { "password":password, "token": localStorage.getItem("TOKEN") });
+    Updatepassword ( password ): Observable<any>{
+        let root = [this.ApiUrl, 'refresh'].join("/");
+        return this.http.post(root, { "password":password, "token": localStorage.getItem("TOKEN") });
     }
 
 

@@ -14,7 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from './pages/login/login.component';
-
+import { RegisterComponent } from './pages/register/register.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -30,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     
     LoginComponent,
     
-    
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
-    
+    FlexLayoutModule,
     MatButtonModule,
     MatCardModule,
     MatTooltipModule,
@@ -58,6 +59,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  
 })
 export class AppModule { }

@@ -1,0 +1,9 @@
+.text-register {
+    text-align: center;
+    margin-top: 5px;
+  }
+
+
+  *, ::after, ::before {
+    box-sizing: content-box !important;
+  }

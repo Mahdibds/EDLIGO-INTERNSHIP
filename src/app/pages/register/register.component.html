@@ -1,0 +1,110 @@
+<section class="example-section" * ngIf="loading" >
+    <mat-progress-bar
+        class="example-margin"
+        color="primary"
+        mode="indeterminate"
+        value="50"
+        bufferValue="75">
+    </mat-progress-bar>
+</section>
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" style="margin-top: 30px;margin-bottom: 30px;">
+
+
+    <mat-card class="box">
+        <form class="example-form" [formGroup]="frmRegister" (ngSubmit)="register()">
+            <mat-card-header>
+                <mat-card-title>Register</mat-card-title>
+            </mat-card-header>
+
+
+
+            <mat-card-content>
+                
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput  formControlName="name">
+                    <mat-error *ngIf="frmRegister.get('name').hasError('required')">
+                        Name is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>LastName</mat-label>
+                    <input matInput formControlName="LastName">
+                    <mat-error *ngIf="frmRegister.get('LastName').hasError('required')">
+                        LastName is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput  formControlName="Username">
+                    <mat-error *ngIf="frmRegister.get('Username').hasError('required')">
+                        Username is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="Email" >
+                    <mat-error *ngIf="frmRegister.get('Email').hasError('required')">
+                        Email is required
+                    </mat-error>
+                    <mat-error *ngIf="frmRegister.get('email').hasError('pattern')">
+                        Non valid email
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender">
+                        <mat-option [value]="" >Select</mat-option>
+                        <mat-option [value]="gender.code" *ngFor="let gender of Gender">{{gender.description}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="frmRegister.get('gender').hasError('required')">
+                        select gender
+                    </mat-error>
+                </mat-form-field>
+
+                
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput  [type]="hide ? 'password' : 'text'" formControlName="passwd" (input)="onPasswordInput()" >
+                    <span class="show-pwd-icon" href="#" onClick="return false;" matSuffix (click)="hide = !hide"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </span>
+                    <mat-error *ngIf="frmRegister.get('passwd').hasError('required')">
+                         Password is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Repeat password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="repeat_passwd" (input)="onPasswordInput()" >
+                    <mat-error *ngIf="frmRegister.get('repeat_passwd').hasError('required')">
+                       Passwor is required
+                    </mat-error>
+                    <mat-error *ngIf="frmRegister.get('repeat_passwd').invalid && !frmRegister.get('repeat_passwd').hasError('required') ">
+                        Passwords are not similar
+                    </mat-error>
+
+                    
+                </mat-form-field>
+
+            </mat-card-content>
+
+            <button mat-stroked-button color="accent" class="btn-block" [disabled] = "!frmRegister.valid">Register</button>
+            <div class="col-sm-12 text-registro">
+                <a href="/login" color="primary">I already have an account, I want to login
+
+                </a>
+            </div>
+        </form>
+
+    </mat-card>
+
+</div>

@@ -2,14 +2,16 @@
     cursor: pointer;
   }
   
-  .text-registro {
+  .text-register {
     text-align: center;
     margin-top: 5px;
+    
   }
   
   .progress-div {
     height: auto;
     width: auto;
+    
   }
   
   *, ::after, ::before {
